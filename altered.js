@@ -1373,6 +1373,7 @@
        this._awaitingAPIReturn = true;
  
        const requestPayload = Object.assign({}, args);
+       console.log(requestPayload);
        delete requestPayload.accountConfigured;
  
        const onFetchDecksFailedOrEmpty = () => {
@@ -1381,7 +1382,6 @@
          this.clearClientState();
          this.showAccountNotConfiguredDeckPickerContent();
        };
-
        this.takeAction('actLoadAPIDecks', { request: JSON.stringify(requestPayload), lock: false }, false)
          .then((response) => {
            if (!this._awaitingAPIReturn) return;
